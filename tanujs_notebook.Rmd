@@ -1,17 +1,15 @@
 ---
-title: "R Notebook Shera Thundercats"
+title: "R Notebook Shera Thundercats Transformers Aug 16"
 output: html_notebook
 ---
 
 
 ```{r setup}
 library(tidyverse)
-library(readr)
-library(ggplot2)
 library(plotly)
 ```
 
-This is the import process
+This is the import process for the clinical data
 
 ```{r}
 simulated_patient_data <- read_csv("https://github.com/philbowsher/Foundation-of-the-R-Workflow-workshop-2019-09-06/raw/master/Examples/data/simulated_patient_data.csv")
@@ -23,7 +21,7 @@ This is the data vis
 
 ```{r}
 simulated_patient_data %>%
- filter(birthdate >= "1975-05-26" & birthdate <= "2020-11-09") %>%
+ filter(birthdate >= "1965-05-26" & birthdate <= "2020-11-09") %>%
  
     filter(marital %in% "S" | is.na(marital)) %>%
  filter(patient_age >= 55L & patient_age <= 
@@ -38,7 +36,7 @@ simulated_patient_data %>%
 Interactive data viz
 
 ```{r}
-# This is my comment
+# This is my comment about diamonds
 p <- ggplot(data = diamonds, aes(x = cut, fill = clarity)) +
             geom_bar(position = "dodge")
 ggplotly(p)
